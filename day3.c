@@ -1,20 +1,21 @@
 /*9)Write a program to Check whether a number is 
 prime. */
 #include<stdio.h>
-int main(){
+int main()
+{
     int n,flag=0;
     printf("enter the number:");
     scanf("%d",&n);
     if(n<=1){
         printf("the given number is not prime");
-        return 0;
+    
     }
     for(int i=2;i<=n/2;i++){
         if(n%i==0){
             flag=1;
             break;
         }
-    
+    }
     if(flag==0){
         printf("the given number is prime");
     }
@@ -60,12 +61,18 @@ range. */
 
 
 /*12)Write a program to Find LCM of two numbers.*/
-    int a,b, lcm;
+    int c,d,lcm ,gcd_cd;
     printf("\n enter the first number:");
-    scanf("%d",&a);
+    scanf("%d",&c);
     printf("enter the second number:");
-    scanf("%d",&b);
-    lcm=(a*b)/gcd;
-    printf("the LCM of %d and %d is %d",a,b,lcm);
+    scanf("%d",&d);
+    gcd_cd=1;
+    for(int i=1;i<=c && i<=d;i++){
+        if(c%i==0 && d%i==0){
+            gcd_cd=i;
+        }
+    }
+    lcm=(c*d)/gcd_cd;
+    printf("the LCM of %d and %d is %d",c,d,lcm);
     return 0;
 }

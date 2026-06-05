@@ -1,13 +1,15 @@
-#include<stdio.h>
-#include<math.h>
+#include <iostream>
+#include <cmath>
+using namespace std;
+
 int main()
 {
     // Q13: Generate Fibonacci series
     int n, first = 0, second = 1, next;
-    printf("Enter number of terms for Fibonacci series: ");
-    scanf("%d", &n);
+    cout << "Enter number of terms for Fibonacci series: ";
+    cin >> n;
     
-    printf("Fibonacci series: ");
+    cout << "Fibonacci series: ";
     for (int i = 0; i < n; i++) {
         if (i <= 1) {
             next = i;
@@ -16,34 +18,34 @@ int main()
             first = second;
             second = next;
         }
-        printf("%d ", next);
+        cout << next << " ";
     }
-    printf("\n");
+    cout << endl;
 
     // Q14: Find nth Fibonacci term
     int n_term, first_ft = 0, second_ft = 1, next_ft;
-    printf("\nEnter n for nth Fibonacci term: ");
-    scanf("%d", &n_term);
+    cout << "\nEnter n for nth Fibonacci term: ";
+    cin >> n_term;
     
     if (n_term <= 0) {
-        printf("Please enter a positive integer\n");
+        cout << "Please enter a positive integer" << endl;
     } else if (n_term == 1) {
-        printf("The %dth Fibonacci term is %d\n", n_term, first_ft);
+        cout << "The " << n_term << "th Fibonacci term is " << first_ft << endl;
     } else if (n_term == 2) {
-        printf("The %dnd Fibonacci term is %d\n", n_term, second_ft);
+        cout << "The " << n_term << "nd Fibonacci term is " << second_ft << endl;
     } else {
         for (int i = 3; i <= n_term; i++) {
             next_ft = first_ft + second_ft;
             first_ft = second_ft;
             second_ft = next_ft;
         }
-        printf("The %dth Fibonacci term is %d\n", n_term, second_ft);
+        cout << "The " << n_term << "th Fibonacci term is " << second_ft << endl;
     }
 
     // Q15: Check Armstrong number
     int num, temp, remainder, sum = 0, digits = 0;
-    printf("\nEnter a number to check Armstrong: ");
-    scanf("%d", &num);
+    cout << "\nEnter a number to check Armstrong: ";
+    cin >> num;
     
     temp = num;
     
@@ -63,19 +65,19 @@ int main()
     }
     
     if (num == sum) {
-        printf("%d is an Armstrong number\n", num);
+        cout << num << " is an Armstrong number" << endl;
     } else {
-        printf("%d is not an Armstrong number\n", num);
+        cout << num << " is not an Armstrong number" << endl;
     }
 
     // Q16: Print Armstrong numbers in a range
     int lower, upper, temp_ar, remainder_ar, sum_ar, digits_ar;
-    printf("\nEnter lower limit for Armstrong range: ");
-    scanf("%d", &lower);
-    printf("Enter upper limit for Armstrong range: ");
-    scanf("%d", &upper);
+    cout << "\nEnter lower limit for Armstrong range: ";
+    cin >> lower;
+    cout << "Enter upper limit for Armstrong range: ";
+    cin >> upper;
     
-    printf("Armstrong numbers between %d and %d are: ", lower, upper);
+    cout << "Armstrong numbers between " << lower << " and " << upper << " are: ";
     
     for (int i = lower; i <= upper; i++) {
         if (i <= 0) continue;
@@ -100,10 +102,10 @@ int main()
         }
         
         if (i == sum_ar) {
-            printf("%d ", i);
+            cout << i << " ";
         }
     }
-    printf("\n");
+    cout << endl;
 
     return 0;
 }

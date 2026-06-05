@@ -1,0 +1,125 @@
+#include <iostream>
+using namespace std;
+
+// Q1: Write a program to Calculate sum of first N natural numbers
+
+void sumOfNaturalNumbers() {
+    cout << "\n=== Q1: Sum of First N Natural Numbers ===" << endl;
+    int n, sum = 0;
+    
+    cout << "Enter a number (N): ";
+    cin >> n;
+    
+    
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+ 
+    
+    cout << "Sum of first " << n << " natural numbers = " << sum << endl;
+}
+
+
+// Q2: Write a program to Print multiplication table of a given number
+
+void printMultiplicationTable() {
+    cout << "\n=== Q2: Print Multiplication Table ===" << endl;
+    int num, limit;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "Enter table limit: ";
+    cin >> limit;
+    
+    cout << "Multiplication table of " << num << ":" << endl;
+    for (int i = 1; i <= limit; i++) {
+        cout << num << " × " << i << " = " << num * i << endl;
+    }
+}
+
+// Q3: Write a program to Find factorial of a number
+
+void findFactorial() {
+    cout << "\n=== Q3: Find Factorial of a Number ===" << endl;
+    int num;
+    long long factorial = 1;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    if (num < 0) {
+        cout << "Factorial is not defined for negative numbers!" << endl;
+        return;
+    }
+    
+    for (int i = 1; i <= num; i++) {
+        factorial *= i;
+    }
+    
+    cout << num << "! = " << factorial << endl;
+}
+
+// Q4: Write a program to Count digits in a number
+
+void countDigits() {
+    cout << "\n=== Q4: Count Digits in a Number ===" << endl;
+    int num, count = 0;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    // Handle negative numbers
+    if (num < 0)
+        num = -num;
+    
+    // Handle 0 separately
+    if (num == 0) {
+        cout << "Number has 1 digit" << endl;
+        return;
+    }
+    
+    // Count digits by dividing by 10
+    while (num > 0) {
+          num /= 10;
+        count++;
+    }
+    
+    cout << "Number has " << count << " digit(s)" << endl;
+}
+
+
+int main() {
+    int choice;
+    cout << "1. Sum of First N Natural Numbers (Q1)" << endl;
+    cout << "2. Print Multiplication Table (Q2)" << endl;
+    cout << "3. Find Factorial (Q3)" << endl;
+    cout << "4. Count Digits (Q4)" << endl;
+    cout << "5. Run All Programs" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch(choice) {
+        case 1:
+            sumOfNaturalNumbers();
+            break;
+        case 2:
+            printMultiplicationTable();
+            break;
+        case 3:
+            findFactorial();
+            break;
+        case 4:
+            countDigits();
+            break;
+        case 5:
+            sumOfNaturalNumbers();
+            printMultiplicationTable();
+            findFactorial();
+            countDigits();
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+    
+    return 0;
+}

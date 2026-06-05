@@ -1,0 +1,142 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Q17: Write a program to Check Perfect Number
+
+
+void checkPerfectNumber() {
+    cout << "\n Q17: Check Perfect Number" << endl;
+    int num, sum = 0;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    for (int i = 1; i < num; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+    
+    if (sum == num)
+        cout << num << " is a perfect number" << endl;
+    else
+        cout << num << " is not a perfect number" << endl;
+}
+
+// Q18: Write a program to Check Strong Number
+
+
+int factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    return n * factorial(n - 1);
+}
+
+void checkStrongNumber() {
+    cout << "\n=== Q18: Check Strong Number ===" << endl;
+    int num, n, digit, sum = 0;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    n = num;
+    while (n > 0) {
+        digit = n % 10;
+        sum += factorial(digit);
+        n /= 10;
+    }
+    
+    if (sum == num)
+        cout << num << " is a strong number" << endl;
+    else
+        cout << num << " is not a strong number" << endl;
+}
+
+
+// Q19: Write a program to Print factors of a number
+void printFactors() {
+    cout << "\n=== Q19: Print Factors of a Number ===" << endl;
+    int num;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    cout << "Factors of " << num << " are: ";
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0)
+            cout << i << " ";
+    }
+    cout << endl;
+}
+
+
+// Q20: Write a program to Find largest prime factor in C++
+
+void findLargestPrimeFactor() {
+    cout << "\n=== Q20: Find Largest Prime Factor ===" << endl;
+    long long num, n, largest = -1;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    n = num;
+    
+    // Handle factor 2
+    while (n % 2 == 0) {
+        largest = 2;
+        n /= 2;
+    }
+    
+    // Handle odd factors
+    for (long long i = 3; i <= sqrt(n); i += 2) {
+        while (n % i == 0) {
+            largest = i;
+            n /= i;
+        }
+    }
+    
+    // If n is still greater than 2, it's a prime factor
+    if (n > 2)
+        largest = n;
+    
+    cout << "Largest prime factor of " << num << " is: " << largest << endl;
+}
+
+
+int main() {
+    int choice;
+    cout << "1. Check Perfect Number (Q17)" << endl;
+    cout << "2. Check Strong Number (Q18)" << endl;
+    cout << "3. Print Factors (Q19)" << endl;
+    cout << "4. Find Largest Prime Factor (Q20)" << endl;
+    cout << "5. Run All Programs" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+    
+    switch(choice) { 
+        case 1:
+            checkPerfectNumber();
+            break;
+        case 2:
+            checkStrongNumber();
+            break;
+        case 3:
+            printFactors();
+            break;
+        case 4:
+            findLargestPrimeFactor();
+            break;
+        case 5:
+            checkPerfectNumber();
+            checkStrongNumber();
+            printFactors();
+            findLargestPrimeFactor();
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+    
+    return 0;
+}
+

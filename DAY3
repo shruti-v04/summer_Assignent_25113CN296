@@ -1,0 +1,157 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Q9: Write a program to Check whether a number is prime
+
+void checkPrime() {
+    cout << "\n=== Q9: Check Prime Number ===" << endl;
+    int num, isPrime = 1;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    // Handle special cases
+    if (num <= 1) {
+        cout << num << " is neither prime nor composite" << endl;
+        return;
+    }
+    
+    if (num == 2) {
+        cout << num << " is a prime number" << endl;
+        return;
+    }
+    
+    // Check divisibility from 2 to sqrt(num)
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            isPrime = 0;  // Found a factor, not prime
+            break;
+        }
+    }
+    
+    if (isPrime == 1)
+        cout << num << " is a prime number" << endl;
+    else
+        cout << num << " is NOT a prime number (composite)" << endl;
+}
+
+// Q10: Write a program to Print prime numbers in a range
+
+void printPrimesInRange() {
+    cout << "\n=== Q10: Print Prime Numbers in a Range ===" << endl;
+    int low, high;
+    
+    cout << "Enter lower bound: ";
+    cin >> low;
+    cout << "Enter upper bound: ";
+    cin >> high;
+    
+    cout << "Prime numbers between " << low << " and " << high << " are: ";
+    
+    for (int num = low; num <= high; num++) {
+  
+        if (num < 2)
+            continue;
+        
+        int isPrime = 1;
+        for (int i = 2; i <= sqrt(num); i++) {
+            if (num % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+        if (isPrime == 1)
+            cout << num << " ";
+    }
+    cout << endl;
+}
+
+// Q11: Write a program to Find GCD of two numbers
+
+void findGCD() {
+    cout << "\n=== Q11: Find GCD of Two Numbers ===" << endl;
+    int a, b, gcd = 1;
+    
+    cout << "Enter first number: ";
+    cin >> a;
+    cout << "Enter second number: ";
+    cin >> b;
+    
+    // Find minimum of two numbers
+    int minNum = (a < b) ? a : b;
+
+    for (int i = minNum; i >= 1; i--) {
+        if (a % i == 0 && b % i == 0) {
+            gcd = i;
+            break;
+        }
+    }
+    
+    cout << "GCD of " << a << " and " << b << " = " << gcd << endl;
+}
+
+// Q12: Write a program to Find LCM of two numbers
+void findLCM() {
+    cout << "\n=== Q12: Find LCM of Two Numbers ===" << endl;
+    int a, b, gcd = 1, lcm;
+    
+    cout << "Enter first number: ";
+    cin >> a;
+    cout << "Enter second number: ";
+    cin >> b;
+    
+    // Find GCD first
+    int minNum = (a < b) ? a : b;
+    
+    for (int i = minNum; i >= 1; i--) {
+        if (a % i == 0 && b % i == 0) {
+            gcd = i;
+            break;
+        }
+    }
+    
+    // Calculate LCM using formula: LCM = (a * b) / GCD
+    lcm = (a * b) / gcd;
+    
+    cout << "LCM of " << a << " and " << b << " = " << lcm << endl;
+    cout << "GCD (for reference) = " << gcd << endl;
+}
+
+
+int main() {
+    int choice;
+    
+    cout << "1. Check Prime Number (Q9)" << endl;
+    cout << "2. Print Primes in Range (Q10)" << endl;
+    cout << "3. Find GCD (Q11)" << endl;
+    cout << "4. Find LCM (Q12)" << endl;
+    cout << "5. Run All Programs" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+    
+    switch(choice) {
+        case 1:
+            checkPrime();
+            break;
+        case 2:
+            printPrimesInRange();
+            break;
+        case 3:
+            findGCD();
+            break;
+        case 4:
+            findLCM();
+            break;
+        case 5:
+            checkPrime();
+            printPrimesInRange();
+            findGCD();
+            findLCM();
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+    
+    return 0;
+}

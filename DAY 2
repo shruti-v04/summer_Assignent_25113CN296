@@ -1,0 +1,149 @@
+#include <iostream>
+using namespace std;
+
+// Q1: Write a program to Find sum of digits of a number
+
+void sumOfDigits() {
+    cout << "\n=== Q1: Sum of Digits of a Number ===" << endl;
+    int num, sum = 0, digit;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    // Handle negative numbers
+    if (num < 0)
+        num = -num;
+    
+    // Extract each digit and add to sum
+    while (num > 0) {
+        digit = num % 10;  // Get last digit
+        sum += digit;      // Add to sum
+        num /= 10;         // Remove last digit
+    }
+    
+    cout << "Sum of digits = " << sum << endl;
+}
+
+// Q2: Write a program to Reverse a number
+
+void reverseNumber() {
+    cout << "\n=== Q2: Reverse a Number ===" << endl;
+    int num, reverse = 0, digit;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    // Store original for output
+    int original = num;
+    
+    // Handle negative numbers
+    if (num < 0)
+        num = -num;
+    
+    // Build reverse number
+    while (num > 0) {
+        digit = num % 10;           // Get last digit
+        reverse = reverse * 10 + digit;  // Add to reverse
+        num /= 10;                  // Remove last digit
+    }
+    
+    cout << "Original number: " << original << endl;
+    cout << "Reverse number: " << reverse << endl;
+}
+
+// Q3: Write a program to Find product of digits
+
+void productOfDigits() {
+    cout << "\n=== Q3: Product of Digits ===" << endl;
+    int num, product = 1, digit;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    // Handle negative numbers
+    if (num < 0)
+        num = -num;
+    
+    // Handle 0 separately
+    if (num == 0) {
+        cout << "Product of digits = 0" << endl;
+        return;
+    }
+    
+    // Extract each digit and multiply
+    while (num > 0) {
+        digit = num % 10;   // Get last digit
+        product *= digit;   // Multiply to product
+        num /= 10;          // Remove last digit
+    }
+    
+    cout << "Product of digits = " << product << endl;
+}
+
+// Q4: Write a program to Check whether a number is palindrome
+
+void checkPalindrome() {
+    cout << "\n=== Q4: Check Palindrome Number ===" << endl;
+    int num, reverse = 0, digit;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    // Store original
+    int original = num;
+    
+    // Handle negative numbers
+    if (num < 0)
+        num = -num;
+    
+    // Find reverse of number
+    while (num > 0) {
+        digit = num % 10;           // Get last digit
+        reverse = reverse * 10 + digit;  // Build reverse
+        num /= 10;                  // Remove last digit
+    }
+    
+    // Compare original with reverse
+    if (original == reverse)
+        cout << original << " is a PALINDROME number" << endl;
+    else
+        cout << original << " is NOT a palindrome number" << endl;
+}
+
+
+int main() {
+    int choice;
+    
+    cout << "1. Sum of Digits (Q1)" << endl;
+    cout << "2. Reverse Number (Q2)" << endl;
+    cout << "3. Product of Digits (Q3)" << endl;
+    cout << "4. Check Palindrome (Q4)" << endl;
+    cout << "5. Run All Programs" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+    
+    switch(choice) {
+        case 1:
+            sumOfDigits();
+            break;
+        case 2:
+            reverseNumber();
+            break;
+        case 3:
+            productOfDigits();
+            break;
+        case 4:
+            checkPalindrome();
+            break;
+        case 5:
+            sumOfDigits();
+            reverseNumber();
+            productOfDigits();
+            checkPalindrome();
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+    
+    return 0;
+}

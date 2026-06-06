@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+     // Q21: Convert Decimal to Binary
+  
+    int decimalNum;
+    cout << "Enter a decimal number: ";
+    cin >> decimalNum;
+
+    string binaryResult = "";
+
+    if (decimalNum == 0)
+    {
+        binaryResult = "0";
+    }
+    else
+    {
+        int tempDecimal = decimalNum;
+        while (tempDecimal > 0)
+        {
+            binaryResult = char((tempDecimal % 2) + '0') + binaryResult;
+            tempDecimal /= 2;
+        }
+    }
+
+    cout << "Binary Equivalent = " << binaryResult << endl;
+
+
+     // Q22: Convert Binary to Decimal
+     long long binaryNum;
+    cout << "\nEnter a binary number: ";
+    cin >> binaryNum;
+
+    int decimalValue = 0;
+    int powerValue = 1;
+
+    while (binaryNum > 0)
+    {
+        int lastDigit = binaryNum % 10;
+        decimalValue += lastDigit * powerValue;
+        powerValue *= 2;
+        binaryNum /= 10;
+    }
+
+    cout << "Decimal Equivalent = " << decimalValue << endl;
+
+
+    // Q23: Count Set Bits in a Number
+
+    int bitNumber;
+    cout << "\nEnter a number: ";
+    cin >> bitNumber;
+
+    int setBitCount = 0;
+    int tempBitNum = bitNumber;
+
+    while (tempBitNum > 0)
+    {
+        if (tempBitNum & 1)
+        {
+            setBitCount++;
+        }
+        tempBitNum >>= 1;
+    }
+
+    cout << "Number of Set Bits = " << setBitCount << endl;
+
+
+    // Q24: Find x^n without pow()
+    int baseValue, exponentValue;
+    cout << "\nEnter base (x): ";
+    cin >> baseValue;
+
+    cout << "Enter exponent (n): ";
+    cin >> exponentValue;
+
+    long long powerResult = 1;
+
+    for (int counter = 1; counter <= exponentValue; counter++)
+    {
+        powerResult *= baseValue;
+    }
+
+    cout << baseValue << "^" << exponentValue
+         << " = " << powerResult << endl;
+
+    return 0;
+}

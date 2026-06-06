@@ -3,7 +3,6 @@
 using namespace std;
 
 // Q9: Write a program to Check whether a number is prime
-
 void checkPrime() {
     cout << "\n=== Q9: Check Prime Number ===" << endl;
     int num, isPrime = 1;

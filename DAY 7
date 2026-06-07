@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+//Q26: Write a program for Recursive Factorial
+int factorialNum(int n1)
+{
+    if (n1 == 0 || n1 == 1)
+        return 1;
+
+    return n1 * factorialNum(n1 - 1);
+}
+
+
+//Q27: Write a program for Recursive Fibonacci
+
+int fibonacciNum(int n2)
+{
+    if (n2 == 0)
+        return 0;
+    if (n2 == 1)
+        return 1;
+
+    return fibonacciNum(n2 - 1) + fibonacciNum(n2 - 2);
+}
+
+
+//Q28: Write a program for Recursive Sum of Digits
+
+int sumDigits(int n3)
+{
+    if (n3 == 0)
+        return 0;
+
+    return (n3 % 10) + sumDigits(n3 / 10);
+}
+
+
+//Q29: Write a program for Recursive Reverse Number
+
+int reverseNumber(int n4, int rev4 = 0)
+{
+    if (n4 == 0)
+        return rev4;
+
+    return reverseNumber(n4 / 10, rev4 * 10 + (n4 % 10));
+}
+
+int main()
+{
+    // Q26: Recursive Factorial
+    int factInput;
+    cout << "Enter number for factorial: ";
+    cin >> factInput;
+    cout << "Factorial = " << factorialNum(factInput) << endl;
+
+    // Q27: Recursive Fibonacci
+    int fibInput;
+    cout << "\nEnter position for Fibonacci: ";
+    cin >> fibInput;
+    cout << "Fibonacci = " << fibonacciNum(fibInput) << endl;
+
+    // Q28: Recursive Sum of Digits
+    int digitInput;
+    cout << "\nEnter number for sum of digits: ";
+    cin >> digitInput;
+    cout << "Sum of Digits = " << sumDigits(digitInput) << endl;
+
+    // Q29: Recursive Reverse Number
+    int reverseInput;
+    cout << "\nEnter number to reverse: ";
+    cin >> reverseInput;
+    cout << "Reversed Number = " << reverseNumber(reverseInput) << endl;
+
+    return 0;
+}

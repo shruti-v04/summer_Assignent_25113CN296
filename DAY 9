@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Q33 Reverse Star Pattern
+
+    cout << "Q33\n";
+    for (int i = 5; i >= 1; i--)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+
+    // Q34 Reverse Number Triangle
+
+    cout << "Q34\n";
+    for (int i = 5; i >= 1; i--)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j;
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+
+    // Q35 Repeated Character Pattern
+
+    cout << "Q35\n";
+    for (int i = 1; i <= 5; i++)
+    {
+        char ch = 'A' + i - 1;
+
+        for (int j = 1; j <= i; j++)
+        {
+            cout << ch;
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+
+    // Q36 Hollow Square Pattern
+
+    cout << "Q36\n";
+    int n = 5;
+
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            if (i == 1 || i == n || j == 1 || j == n)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

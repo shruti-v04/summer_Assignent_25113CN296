@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+// Q41 Function to find sum of two numbers
+int sum(int a, int b)
+{
+    return a + b;
+}
+
+// Q42 Function to find maximum
+int maximum(int a, int b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
+// Q43 Function to check prime
+bool isPrime(int n)
+{
+    if (n <= 1)
+        return false;
+
+    for (int i = 2; i <= n / 2; i++)
+    {
+        if (n % i == 0)
+            return false;
+    }
+
+    return true;
+}
+
+// Q44 Function to find factorial
+long long factorial(int n)
+{
+    long long fact = 1;
+
+    for (int i = 1; i <= n; i++)
+        fact *= i;
+
+    return fact;
+}
+
+int main()
+{
+    // Q41
+
+    int a = 10, b = 20;
+    cout << "Q41\n";
+    cout << "Sum = " << sum(a, b) << endl;
+
+    cout << endl;
+
+    // Q42
+
+    cout << "Q42\n";
+    cout << "Maximum = " << maximum(a, b) << endl;
+
+    cout << endl;
+
+    // Q43
+
+    int num = 17;
+    cout << "Q43\n";
+
+    if (isPrime(num))
+        cout << num << " is Prime" << endl;
+    else
+        cout << num << " is Not Prime" << endl;
+
+    cout << endl;
+
+    // Q44
+
+    int n = 5;
+    cout << "Q44\n";
+    cout << "Factorial = " << factorial(n) << endl;
+
+    return 0;
+}

@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+
+// Q45 Function for Palindrome
+bool isPalindrome(int n)
+{
+    int original = n, reverse = 0;
+
+    while (n > 0)
+    {
+        reverse = reverse * 10 + n % 10;
+        n /= 10;
+    }
+
+    return original == reverse;
+}
+
+// Q46 Function for Armstrong
+bool isArmstrong(int n)
+{
+    int original = n, sum = 0;
+
+    while (n > 0)
+    {
+        int digit = n % 10;
+        sum += digit * digit * digit;
+        n /= 10;
+    }
+
+    return original == sum;
+}
+
+// Q47 Function for Fibonacci
+void fibonacci(int n)
+{
+    int a = 0, b = 1;
+
+    for (int i = 1; i <= n; i++)
+    {
+        cout << a << " ";
+        int c = a + b;
+        a = b;
+        b = c;
+    }
+}
+
+// Q48 Function for Perfect Number
+bool isPerfect(int n)
+{
+    int sum = 0;
+
+    for (int i = 1; i < n; i++)
+    {
+        if (n % i == 0)
+            sum += i;
+    }
+
+    return sum == n;
+}
+
+int main()
+{
+    // Q45
+
+    int num1 = 121;
+    cout << "Q45\n";
+
+    if (isPalindrome(num1))
+        cout << num1 << " is Palindrome" << endl;
+    else
+        cout << num1 << " is Not Palindrome" << endl;
+
+    cout << endl;
+
+    // Q46
+
+    int num2 = 153;
+    cout << "Q46\n";
+
+    if (isArmstrong(num2))
+        cout << num2 << " is Armstrong" << endl;
+    else
+        cout << num2 << " is Not Armstrong" << endl;
+
+    cout << endl;
+
+    // Q47
+
+    cout << "Q47\n";
+    fibonacci(10);
+
+    cout << endl << endl;
+
+    // Q48
+
+    int num3 = 28;
+    cout << "Q48\n";
+
+    if (isPerfect(num3))
+        cout << num3 << " is Perfect Number" << endl;
+    else
+        cout << num3 << " is Not Perfect Number" << endl;
+
+    return 0;
+}

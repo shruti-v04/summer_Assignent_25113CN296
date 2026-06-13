@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[100], n;
+
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    // Q49 Input and Display Array
+
+    cout << "Enter array elements:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    cout << "Q49\n";
+    cout << "Array elements: ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl << endl;
+
+    // Q50 Sum and Average of Array
+
+    int sum = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+
+    double average = (double)sum / n;
+
+    cout << "Q50\n";
+    cout << "Sum = " << sum << endl;
+    cout << "Average = " << average << endl;
+
+    cout << endl;
+
+    // Q51 Largest and Smallest Element
+
+    int largest = arr[0];
+    int smallest = arr[0];
+
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > largest)
+            largest = arr[i];
+
+        if (arr[i] < smallest)
+            smallest = arr[i];
+    }
+
+    cout << "Q51\n";
+    cout << "Largest = " << largest << endl;
+    cout << "Smallest = " << smallest << endl;
+
+    cout << endl;
+
+    // Q52 Count Even and Odd Elements
+
+    int even = 0, odd = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+
+    cout << "Q52\n";
+    cout << "Even elements = " << even << endl;
+    cout << "Odd elements = " << odd << endl;
+
+    return 0;
+}

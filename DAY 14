@@ -1,0 +1,115 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[100], n;
+
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    cout << "Enter array elements:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    // Q53 Linear Search
+
+    int key;
+    cout << "\nQ53\n";
+    cout << "Enter element to search: ";
+    cin >> key;
+
+    int pos = -1;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == key)
+        {
+            pos = i;
+            break;
+        }
+    }
+
+    if (pos != -1)
+        cout << "Element found at position " << pos + 1 << endl;
+    else
+        cout << "Element not found" << endl;
+
+    // Q54 Frequency of an Element
+
+    int freqElement, count = 0;
+
+    cout << "\nQ54\n";
+    cout << "Enter element to find frequency: ";
+    cin >> freqElement;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == freqElement)
+            count++;
+    }
+
+    cout << "Frequency = " << count << endl;
+
+    // Q55 Second Largest Element
+
+    int largest = arr[0];
+    int secondLargest = arr[0];
+
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > largest)
+        {
+            secondLargest = largest;
+            largest = arr[i];
+        }
+        else if (arr[i] > secondLargest && arr[i] != largest)
+        {
+            secondLargest = arr[i];
+        }
+    }
+
+    cout << "\nQ55\n";
+    cout << "Second Largest = " << secondLargest << endl;
+
+    // Q56 Find Duplicates in Array
+
+    cout << "\nQ56\n";
+    cout << "Duplicate elements: ";
+
+    bool found = false;
+
+    for (int i = 0; i < n; i++)
+    {
+        bool printed = false;
+
+        for (int k = 0; k < i; k++)
+        {
+            if (arr[i] == arr[k])
+            {
+                printed = true;
+                break;
+            }
+        }
+
+        if (printed)
+            continue;
+
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[i] == arr[j])
+            {
+                cout << arr[i] << " ";
+                found = true;
+                break;
+            }
+        }
+    }
+
+    if (!found)
+        cout << "No duplicates";
+
+    return 0;
+}

@@ -1,0 +1,108 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Q57 Reverse Array
+
+    cout << "Q57\n";
+
+    int n1, arr1[100];
+
+    cout << "Enter size: ";
+    cin >> n1;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n1; i++)
+        cin >> arr1[i];
+
+    cout << "Reversed Array: ";
+    for (int i = n1 - 1; i >= 0; i--)
+        cout << arr1[i] << " ";
+
+    cout << endl << endl;
+
+    // Q58 Rotate Array Left
+
+    cout << "Q58\n";
+
+    int n2, arr2[100];
+
+    cout << "Enter size: ";
+    cin >> n2;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n2; i++)
+        cin >> arr2[i];
+
+    int first = arr2[0];
+
+    for (int i = 0; i < n2 - 1; i++)
+        arr2[i] = arr2[i + 1];
+
+    arr2[n2 - 1] = first;
+
+    cout << "Left Rotated Array: ";
+    for (int i = 0; i < n2; i++)
+        cout << arr2[i] << " ";
+
+    cout << endl << endl;
+
+    // Q59 Rotate Array Right
+
+    cout << "Q59\n";
+
+    int n3, arr3[100];
+
+    cout << "Enter size: ";
+    cin >> n3;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n3; i++)
+        cin >> arr3[i];
+
+    int last = arr3[n3 - 1];
+
+    for (int i = n3 - 1; i > 0; i--)
+        arr3[i] = arr3[i - 1];
+
+    arr3[0] = last;
+
+    cout << "Right Rotated Array: ";
+    for (int i = 0; i < n3; i++)
+        cout << arr3[i] << " ";
+
+    cout << endl << endl;
+
+    // Q60 Move Zeroes to End
+
+    cout << "Q60\n";
+
+    int n4, arr4[100];
+
+    cout << "Enter size: ";
+    cin >> n4;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n4; i++)
+        cin >> arr4[i];
+
+    int j = 0;
+
+    for (int i = 0; i < n4; i++)
+    {
+        if (arr4[i] != 0)
+        {
+            int temp = arr4[i];
+            arr4[i] = arr4[j];
+            arr4[j] = temp;
+            j++;
+        }
+    }
+
+    cout << "Array after moving zeroes: ";
+    for (int i = 0; i < n4; i++)
+        cout << arr4[i] << " ";
+
+    return 0;
+}

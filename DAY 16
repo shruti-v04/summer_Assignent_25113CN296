@@ -1,0 +1,134 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Q61 Find Missing Number in Array
+
+    cout << "Q61\n";
+
+    int n1, arr1[100];
+
+    cout << "Enter n (numbers from 1 to n with one missing): ";
+    cin >> n1;
+
+    cout << "Enter " << n1 - 1 << " elements:\n";
+    for (int i = 0; i < n1 - 1; i++)
+        cin >> arr1[i];
+
+    int sum = 0;
+    for (int i = 0; i < n1 - 1; i++)
+        sum += arr1[i];
+
+    int total = n1 * (n1 + 1) / 2;
+
+    cout << "Missing Number = " << total - sum << endl;
+
+    cout << endl;
+
+    // Q62 Find Maximum Frequency Element
+
+    cout << "Q62\n";
+
+    int n2, arr2[100];
+
+    cout << "Enter size: ";
+    cin >> n2;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n2; i++)
+        cin >> arr2[i];
+
+    int maxFreq = 0, element;
+
+    for (int i = 0; i < n2; i++)
+    {
+        int count = 0;
+
+        for (int j = 0; j < n2; j++)
+        {
+            if (arr2[i] == arr2[j])
+                count++;
+        }
+
+        if (count > maxFreq)
+        {
+            maxFreq = count;
+            element = arr2[i];
+        }
+    }
+
+    cout << "Maximum Frequency Element = " << element << endl;
+    cout << "Frequency = " << maxFreq << endl;
+
+    cout << endl;
+
+    // Q63 Find Pair With Given Sum
+
+    cout << "Q63\n";
+
+    int n3, arr3[100], target;
+
+    cout << "Enter size: ";
+    cin >> n3;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n3; i++)
+        cin >> arr3[i];
+
+    cout << "Enter target sum: ";
+    cin >> target;
+
+    bool found = false;
+
+    for (int i = 0; i < n3; i++)
+    {
+        for (int j = i + 1; j < n3; j++)
+        {
+            if (arr3[i] + arr3[j] == target)
+            {
+                cout << "Pair: " << arr3[i] << " " << arr3[j] << endl;
+                found = true;
+            }
+        }
+    }
+
+    if (!found)
+        cout << "No Pair Found" << endl;
+
+    cout << endl;
+
+    // Q64 Remove Duplicates From Array
+
+    cout << "Q64\n";
+
+    int n4, arr4[100];
+
+    cout << "Enter size: ";
+    cin >> n4;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n4; i++)
+        cin >> arr4[i];
+
+    cout << "Array After Removing Duplicates: ";
+
+    for (int i = 0; i < n4; i++)
+    {
+        bool duplicate = false;
+
+        for (int j = 0; j < i; j++)
+        {
+            if (arr4[i] == arr4[j])
+            {
+                duplicate = true;
+                break;
+            }
+        }
+
+        if (!duplicate)
+            cout << arr4[i] << " ";
+    }
+
+    return 0;
+}

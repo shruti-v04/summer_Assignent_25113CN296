@@ -1,0 +1,173 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // Q65 Merge Arrays
+
+    cout << "Q65\n";
+
+    int n1, n2;
+    int arr1[100], arr2[100], merge[200];
+
+    cout << "Enter size of first array: ";
+    cin >> n1;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n1; i++)
+        cin >> arr1[i];
+
+    cout << "Enter size of second array: ";
+    cin >> n2;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n2; i++)
+        cin >> arr2[i];
+
+    int k = 0;
+
+    for (int i = 0; i < n1; i++)
+        merge[k++] = arr1[i];
+
+    for (int i = 0; i < n2; i++)
+        merge[k++] = arr2[i];
+
+    cout << "Merged Array: ";
+    for (int i = 0; i < k; i++)
+        cout << merge[i] << " ";
+
+    cout << endl << endl;
+
+    // Q66 Union of Arrays
+
+    cout << "Q66\n";
+
+    int n3, n4;
+    int arr3[100], arr4[100];
+
+    cout << "Enter size of first array: ";
+    cin >> n3;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n3; i++)
+        cin >> arr3[i];
+
+    cout << "Enter size of second array: ";
+    cin >> n4;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n4; i++)
+        cin >> arr4[i];
+
+    cout << "Union: ";
+
+    for (int i = 0; i < n3; i++)
+        cout << arr3[i] << " ";
+
+    for (int i = 0; i < n4; i++)
+    {
+        bool found = false;
+
+        for (int j = 0; j < n3; j++)
+        {
+            if (arr4[i] == arr3[j])
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+            cout << arr4[i] << " ";
+    }
+
+    cout << endl << endl;
+
+    // Q67 Intersection of Arrays
+
+    cout << "Q67\n";
+
+    int n5, n6;
+    int arr5[100], arr6[100];
+
+    cout << "Enter size of first array: ";
+    cin >> n5;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n5; i++)
+        cin >> arr5[i];
+
+    cout << "Enter size of second array: ";
+    cin >> n6;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n6; i++)
+        cin >> arr6[i];
+
+    cout << "Intersection: ";
+
+    for (int i = 0; i < n5; i++)
+    {
+        for (int j = 0; j < n6; j++)
+        {
+            if (arr5[i] == arr6[j])
+            {
+                cout << arr5[i] << " ";
+                break;
+            }
+        }
+    }
+
+    cout << endl << endl;
+
+    // Q68 Find Common Elements
+
+    cout << "Q68\n";
+
+    int n7, n8;
+    int arr7[100], arr8[100];
+
+    cout << "Enter size of first array: ";
+    cin >> n7;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n7; i++)
+        cin >> arr7[i];
+
+    cout << "Enter size of second array: ";
+    cin >> n8;
+
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n8; i++)
+        cin >> arr8[i];
+
+    cout << "Common Elements: ";
+
+    for (int i = 0; i < n7; i++)
+    {
+        bool printed = false;
+
+        for (int k = 0; k < i; k++)
+        {
+            if (arr7[i] == arr7[k])
+            {
+                printed = true;
+                break;
+            }
+        }
+
+        if (printed)
+            continue;
+
+        for (int j = 0; j < n8; j++)
+        {
+            if (arr7[i] == arr8[j])
+            {
+                cout << arr7[i] << " ";
+                break;
+            }
+        }
+    }
+
+    return 0;
+}

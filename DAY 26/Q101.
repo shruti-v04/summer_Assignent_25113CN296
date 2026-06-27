@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int secret = 7;
+    int guess;
+
+    cout << "Number Guessing Game\n";
+    cout << "Guess a number between 1 and 10: ";
+
+    while (true)
+    {
+        cin >> guess;
+
+        if (guess == secret)
+        {
+            cout << "Congratulations! You guessed the correct number.";
+            break;
+        }
+        else if (guess < secret)
+        {
+            cout << "Too Low! Try Again: ";
+        }
+        else
+        {
+            cout << "Too High! Try Again: ";
+        }
+    }
+
+    return 0;
+}

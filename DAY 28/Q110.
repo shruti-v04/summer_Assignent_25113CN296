@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+struct BankAccount
+{
+    int accountNo;
+    char name[50];
+    float balance;
+};
+
+int main()
+{
+    BankAccount b;
+    int choice;
+    float amount;
+
+    cout << "Enter Account Number: ";
+    cin >> b.accountNo;
+
+    cin.ignore();
+
+    cout << "Enter Account Holder Name: ";
+    cin.getline(b.name, 50);
+
+    cout << "Enter Initial Balance: ";
+    cin >> b.balance;
+
+    do
+    {
+        cout << "\n----- Bank Account System -----\n";
+        cout << "1. Check Balance\n";
+        cout << "2. Deposit Money\n";
+        cout << "3. Withdraw Money\n";
+        cout << "4. Display Account Details\n";
+        cout << "5. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                cout << "Current Balance: " << b.balance << endl;
+                break;
+
+            case 2:
+                cout << "Enter Deposit Amount: ";
+                cin >> amount;
+                b.balance += amount;
+                cout << "Money Deposited Successfully\n";
+                break;
+
+            case 3:
+                cout << "Enter Withdraw Amount: ";
+                cin >> amount;
+
+                if (amount <= b.balance)
+                {
+                    b.balance -= amount;
+                    cout << "Money Withdrawn Successfully\n";
+                }
+                else
+                {
+                    cout << "Insufficient Balance\n";
+                }
+                break;
+
+            case 4:
+                cout << "\nAccount Details\n";
+                cout << "Account Number : " << b.accountNo << endl;
+                cout << "Account Holder : " << b.name << endl;
+                cout << "Balance        : " << b.balance << endl;
+                break;
+
+            case 5:
+                cout << "Thank You!";
+                break;
+
+            default:
+                cout << "Invalid Choice";
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}

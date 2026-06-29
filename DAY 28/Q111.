@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+struct Ticket
+{
+    int ticketNo;
+    char name[50];
+    char destination[50];
+    int seats;
+    float totalFare;
+};
+
+int main()
+{
+    Ticket t;
+    int choice;
+    const float farePerSeat = 500;
+
+    do
+    {
+        cout << "\n----- Ticket Booking System -----\n";
+        cout << "1. Book Ticket\n";
+        cout << "2. View Ticket\n";
+        cout << "3. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                cout << "Enter Ticket Number: ";
+                cin >> t.ticketNo;
+
+                cin.ignore();
+
+                cout << "Enter Passenger Name: ";
+                cin.getline(t.name, 50);
+
+                cout << "Enter Destination: ";
+                cin.getline(t.destination, 50);
+
+                cout << "Enter Number of Seats: ";
+                cin >> t.seats;
+
+                t.totalFare = t.seats * farePerSeat;
+
+                cout << "Ticket Booked Successfully!\n";
+                break;
+
+            case 2:
+                cout << "\nTicket Details\n";
+                cout << "Ticket Number : " << t.ticketNo << endl;
+                cout << "Passenger Name: " << t.name << endl;
+                cout << "Destination   : " << t.destination << endl;
+                cout << "Seats         : " << t.seats << endl;
+                cout << "Total Fare    : " << t.totalFare << endl;
+                break;
+
+            case 3:
+                cout << "Thank You!";
+                break;
+
+            default:
+                cout << "Invalid Choice";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}

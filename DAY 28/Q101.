@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+struct Book
+{
+    int id;
+    char name[50];
+    char author[50];
+    int quantity;
+};
+
+int main()
+{
+    Book b;
+
+    cout << "Enter Book ID: ";
+    cin >> b.id;
+
+    cin.ignore();
+
+    cout << "Enter Book Name: ";
+    cin.getline(b.name, 50);
+
+    cout << "Enter Author Name: ";
+    cin.getline(b.author, 50);
+
+    cout << "Enter Quantity: ";
+    cin >> b.quantity;
+
+    cout << "\nLibrary Record\n";
+    cout << "Book ID : " << b.id << endl;
+    cout << "Book Name : " << b.name << endl;
+    cout << "Author : " << b.author << endl;
+    cout << "Quantity : " << b.quantity << endl;
+
+    return 0;
+}

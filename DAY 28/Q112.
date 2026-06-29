@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+struct Contact
+{
+    char name[50];
+    char phone[15];
+    char email[50];
+};
+
+int main()
+{
+    Contact c;
+    int choice;
+
+    do
+    {
+        cout << "\n----- Contact Management System -----\n";
+        cout << "1. Add Contact\n";
+        cout << "2. View Contact\n";
+        cout << "3. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                cin.ignore();
+
+                cout << "Enter Name: ";
+                cin.getline(c.name, 50);
+
+                cout << "Enter Phone Number: ";
+                cin.getline(c.phone, 15);
+
+                cout << "Enter Email: ";
+                cin.getline(c.email, 50);
+
+                cout << "Contact Added Successfully!\n";
+                break;
+
+            case 2:
+                cout << "\nContact Details\n";
+                cout << "Name         : " << c.name << endl;
+                cout << "Phone Number : " << c.phone << endl;
+                cout << "Email        : " << c.email << endl;
+                break;
+
+            case 3:
+                cout << "Thank You!";
+                break;
+
+            default:
+                cout << "Invalid Choice";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}

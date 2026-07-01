@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class Book
+{
+public:
+    int id;
+    string title;
+    string author;
+};
+
+int main()
+{
+    Book b[100];
+    int n;
+
+    cout << "Enter number of books: ";
+    cin >> n;
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << "\nBook " << i + 1 << endl;
+
+        cout << "Book ID: ";
+        cin >> b[i].id;
+
+        cout << "Book Title: ";
+        cin >> b[i].title;
+
+        cout << "Author: ";
+        cin >> b[i].author;
+    }
+
+    cout << "\nLibrary Records\n";
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << "\nID: " << b[i].id;
+        cout << "\nTitle: " << b[i].title;
+        cout << "\nAuthor: " << b[i].author << endl;
+    }
+
+    return 0;
+}

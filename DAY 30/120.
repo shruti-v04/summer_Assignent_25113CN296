@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+struct Student
+{
+    int rollNo;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    Student s;
+    int choice;
+
+    do
+    {
+        cout << "\n=====================================\n";
+        cout << "      MINI MANAGEMENT SYSTEM\n";
+        cout << "=====================================\n";
+        cout << "1. Add Student Record\n";
+        cout << "2. View Student Record\n";
+        cout << "3. Update Marks\n";
+        cout << "4. Exit\n";
+        cout << "=====================================\n";
+        cout << "Enter Your Choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                cout << "\nEnter Roll Number: ";
+                cin >> s.rollNo;
+
+                cin.ignore();
+
+                cout << "Enter Student Name: ";
+                cin.getline(s.name, 50);
+
+                cout << "Enter Marks: ";
+                cin >> s.marks;
+
+                cout << "\nStudent Record Saved Successfully.\n";
+                break;
+
+            case 2:
+                cout << "\nStudent Details\n";
+                cout << "Roll Number : " << s.rollNo << endl;
+                cout << "Name        : " << s.name << endl;
+                cout << "Marks       : " << s.marks << endl;
+                break;
+
+            case 3:
+                cout << "Enter New Marks: ";
+                cin >> s.marks;
+                cout << "Marks Updated Successfully.\n";
+                break;
+
+            case 4:
+                cout << "Closing Mini Management System...\n";
+                break;
+
+            default:
+                cout << "Invalid Choice! Please Try Again.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}

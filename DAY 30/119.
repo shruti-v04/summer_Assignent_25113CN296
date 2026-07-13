@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    char department[30];
+    float salary;
+};
+
+int main()
+{
+    Employee emp;
+    int choice;
+
+    do
+    {
+        cout << "\n=====================================\n";
+        cout << "    EMPLOYEE MANAGEMENT SYSTEM\n";
+        cout << "=====================================\n";
+        cout << "1. Add Employee\n";
+        cout << "2. View Employee Details\n";
+        cout << "3. Update Salary\n";
+        cout << "4. Exit\n";
+        cout << "=====================================\n";
+        cout << "Enter Your Choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+            case 1:
+                cout << "\nEnter Employee ID: ";
+                cin >> emp.id;
+
+                cin.ignore();
+
+                cout << "Enter Employee Name: ";
+                cin.getline(emp.name, 50);
+
+                cout << "Enter Department: ";
+                cin.getline(emp.department, 30);
+
+                cout << "Enter Salary: ";
+                cin >> emp.salary;
+
+                cout << "\nEmployee Record Added Successfully.\n";
+                break;
+
+            case 2:
+                cout << "\nEmployee Details\n";
+                cout << "Employee ID : " << emp.id << endl;
+                cout << "Name        : " << emp.name << endl;
+                cout << "Department  : " << emp.department << endl;
+                cout << "Salary      : " << emp.salary << endl;
+                break;
+
+            case 3:
+                cout << "Enter New Salary: ";
+                cin >> emp.salary;
+                cout << "Salary Updated Successfully.\n";
+                break;
+
+            case 4:
+                cout << "Exiting Employee Management System...\n";
+                break;
+
+            default:
+                cout << "Invalid Choice! Please Try Again.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
